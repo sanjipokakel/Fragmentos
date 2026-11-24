@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b090b">
+  <meta name="description" content="Fragmentos de uma Devoção Silenciosa — dois poemas sobre fascínio, ausência e aquilo que permanece.">
+  <title>Fragmentos de uma Devoção Silenciosa</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=Inter:wght@300;400;500&display=swap');
+
+    :root {
+      --night: #0b090b;
+      --night-soft: #121014;
+      --panel: #171217;
+      --wine: #581d2a;
+      --blood: #8d293b;
+      --ash: #aaa0a2;
+      --paper: #d7c9c3;
+      --muted: #786e73;
+      --line: rgba(185, 139, 145, .2);
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --display: "IM Fell English", Georgia, serif;
+      --sans: Inter, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--night); }
+    body {
+      margin: 0; color: var(--paper); background:
+        radial-gradient(ellipse at 50% 0%, rgba(76, 24, 39, .18), transparent 44rem),
+        radial-gradient(ellipse at 0% 65%, rgba(68, 33, 46, .08), transparent 35rem),
+        var(--night);
+      font-family: var(--sans); font-weight: 300; min-height: 100vh;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 5; opacity: .12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+    a { color: inherit; }
+    .topbar {
+      width: min(1120px, calc(100% - 48px)); margin: auto; padding: 26px 0;
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid var(--line); position: relative; z-index: 2;
+    }
+    .brand { font: 500 12px var(--sans); letter-spacing: .24em; text-transform: uppercase; color: #c3aeb1; }
+    .brand span { color: var(--blood); }
+    .nav { display: flex; gap: 28px; }
+    .nav a { text-decoration: none; color: var(--muted); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; transition: color .3s; }
+    .nav a:hover { color: var(--paper); }
+
+    .hero {
+      min-height: 660px; padding: 100px 24px 90px; display: grid; place-items: center;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before, .hero::after {
+      content: ""; position: absolute; width: 390px; height: 390px; border: 1px solid rgba(142, 69, 82, .10);
+      border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      box-shadow: 0 0 90px rgba(91, 25, 43, .10), inset 0 0 80px rgba(91, 25, 43, .06);
+    }
+    .hero::after { width: 470px; height: 470px; border-color: rgba(142, 69, 82, .06); }
+    .hero-inner { position: relative; z-index: 1; max-width: 760px; }
+    .eyebrow { color: #9c6872; font-size: 10px; letter-spacing: .38em; text-transform: uppercase; margin-bottom: 30px; }
+    .ornament { color: var(--blood); font: 30px var(--display); opacity: .9; margin-bottom: 20px; }
+    h1 {
+      font: 500 clamp(3.1rem, 8vw, 6.6rem)/.92 var(--display); letter-spacing: -.035em;
+      color: #e0d2ce; margin: 0 auto 28px; max-width: 850px; text-wrap: balance;
+      text-shadow: 0 8px 50px rgba(109, 32, 50, .18);
+    }
+    .subtitle { color: #a99b9e; font: italic 1.28rem/1.5 var(--serif); letter-spacing: .025em; max-width: 440px; margin: auto; }
+    .hero-rule { width: 74px; height: 1px; background: var(--blood); margin: 38px auto 24px; opacity: .75; }
+    .scroll-note { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: #71656b; }
+    .scroll-note span { display: block; font-size: 18px; margin-top: 13px; color: #8b4755; animation: drift 2.2s infinite; }
+    @keyframes drift { 0%,100% { transform: translateY(0); opacity: .55; } 50% { transform: translateY(6px); opacity: 1; } }
+
+    .intro { max-width: 650px; margin: 0 auto 100px; padding: 0 26px; text-align: center; }
+    .intro p { font: italic 1.38rem/1.6 var(--serif); color: #b9aaad; margin: 0; }
+    .intro small { display: block; margin-top: 22px; color: #766a70; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; }
+
+    .collection { width: min(940px, calc(100% - 40px)); margin: 0 auto 120px; }
+    .section-head { display: flex; align-items: center; gap: 18px; margin-bottom: 34px; }
+    .section-head::before, .section-head::after { content: ""; height: 1px; background: var(--line); flex: 1; }
+    .section-head span { color: #9c6872; font-size: 9px; letter-spacing: .3em; text-transform: uppercase; white-space: nowrap; }
+    .poem-card {
+      position: relative; padding: 58px 30px 62px; margin: 0 0 34px; overflow: hidden;
+      background: linear-gradient(135deg, rgba(31, 22, 29, .88), rgba(17, 14, 18, .92));
+      border: 1px solid rgba(173, 113, 123, .18); box-shadow: 0 24px 80px rgba(0,0,0,.22);
+    }
+    .poem-card::before {
+      content: "✧"; position: absolute; right: 28px; top: 20px; color: rgba(151, 67, 83, .38); font: 25px var(--display);
+    }
+    .poem-card::after { content: ""; position: absolute; left: 0; top: 0; width: 2px; height: 100%; background: linear-gradient(transparent, var(--wine), transparent); opacity: .8; }
+    .poem-number { color: #925b66; font-size: 9px; letter-spacing: .32em; text-transform: uppercase; text-align: center; margin-bottom: 15px; }
+    h2 { font: 500 clamp(2.2rem, 5vw, 3.7rem)/1.05 var(--display); text-align: center; color: #dfcfcb; margin: 0 0 15px; }
+    .poem-meta { color: #84777c; font: italic 1rem var(--serif); text-align: center; margin-bottom: 38px; }
+    .poem-text { max-width: 570px; margin: auto; text-align: center; font: 400 1.23rem/1.62 var(--serif); color: #cbbfc0; white-space: pre-line; }
+    .poem-text p { margin: 0 0 1.05em; }
+    .poem-text p:last-child { margin-bottom: 0; }
+    .poem-text .stanza { margin-bottom: 1.65em; }
+    .card-footer { text-align: center; margin-top: 42px; color: #75414c; font: 20px var(--display); letter-spacing: .4em; }
+
+    .closing { text-align: center; padding: 0 24px 110px; }
+    .closing .mark { font: 32px var(--display); color: #8b3548; }
+    .closing p { font: italic 1.3rem/1.5 var(--serif); color: #887b80; margin: 18px auto 0; max-width: 500px; }
+    footer { border-top: 1px solid var(--line); padding: 25px 20px 32px; text-align: center; color: #62585e; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; }
+    .fade { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+    .fade.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 600px) {
+      .topbar { width: calc(100% - 34px); padding: 20px 0; }
+      .brand { font-size: 9px; letter-spacing: .17em; }
+      .nav { gap: 14px; }
+      .nav a { font-size: 9px; letter-spacing: .1em; }
+      .hero { min-height: 590px; padding: 86px 22px 75px; }
+      .hero::before { width: 290px; height: 290px; }
+      .hero::after { width: 350px; height: 350px; }
+      .eyebrow { font-size: 8px; letter-spacing: .28em; margin-bottom: 25px; }
+      h1 { font-size: clamp(3rem, 13vw, 4.6rem); line-height: .98; }
+      .subtitle { font-size: 1.13rem; }
+      .intro { margin-bottom: 76px; }
+      .intro p { font-size: 1.2rem; }
+      .collection { width: calc(100% - 24px); margin-bottom: 88px; }
+      .poem-card { padding: 46px 18px 48px; margin-bottom: 20px; }
+      .poem-card::before { right: 15px; top: 12px; }
+      .poem-meta { margin-bottom: 30px; font-size: .95rem; }
+      .poem-text { font-size: 1.13rem; line-height: 1.58; }
+      .closing { padding-bottom: 82px; }
+      footer { font-size: 8px; letter-spacing: .13em; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+      .fade { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Voltar ao início">FRAGMENTOS <span>✦</span></a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#poemas">Poemas</a>
+      <a href="#fim">Epílogo</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-inner fade">
+        <div class="eyebrow">Uma pequena coletânea · 2026</div>
+        <div class="ornament">❧</div>
+        <h1>Fragmentos de uma<br>Devoção Silenciosa</h1>
+        <p class="subtitle">Dois poemas sobre o fascínio, a ausência e aquilo que permanece.</p>
+        <div class="hero-rule"></div>
+        <div class="scroll-note">Desça para ler<span>⌄</span></div>
+      </div>
+    </section>
+
+    <section class="intro fade">
+      <p>“Há sentimentos que não encontram morada, senão nas palavras.”</p>
+      <small>Entre aquilo que se sente e aquilo que nunca se diz</small>
+    </section>
+
+    <section class="collection" id="poemas">
+      <div class="section-head"><span>Os escritos</span></div>
+
+      <article class="poem-card fade">
+        <div class="poem-number">I · Primeiro escrito</div>
+        <h2>A Liturgia de uma<br>Dama Sibilina</h2>
+        <div class="poem-meta">Devoção · Limerência · Ausência</div>
+        <div class="poem-text">
+          <p class="stanza">De que adianta?</p>
+          <p class="stanza">De que adianta ter todos os jogos,<br>um PC e um console,<br>se não há quem me console?</p>
+          <p class="stanza">Ela, de olhos etéreos e noctívagos,<br>que, por mais que eu tente,<br>jamais me perceberá,<br>pois sou como a sombra<br>em meio à escuridão.</p>
+          <p class="stanza">Suas vestes lúgubres<br>fazem brilhar meus olhos;<br>seu cabelo, de cor rubra,<br>acende em mim uma centelha ardente,<br>remanescente do fascínio<br>que nutro por ti.</p>
+          <p class="stanza">Tu me dizes que amar não consegues,<br>mas e eu?<br>Eu queimo em limerência<br>por tua pessoa.</p>
+          <p class="stanza">Um dia, talvez não hoje,<br>talvez não amanhã,<br>mas um dia,<br>morrerei de amor em teus braços.</p>
+          <p>Ó dama dolente e sibilina,<br>notai meus esforços por ti,<br>pois neles habita um fervor<br>que, embora não correspondido,<br>permanece deliberadamente infinito.</p>
+        </div>
+        <div class="card-footer">✦ &nbsp; ✦ &nbsp; ✦</div>
+      </article>
+
+      <article class="poem-card fade">
+        <div class="poem-number">II · Segundo escrito</div>
+        <h2>Entre o Sangue<br>e a Neve</h2>
+        <div class="poem-meta">Fascínio · Contraste · Idealização</div>
+        <div class="poem-text">
+          <p class="stanza">A cada dia que se esvai, mais me vejo enfeitiçado por tua existência. Teus cabelos carmesins, tão raros quanto o crepúsculo em meio à vastidão, não se encontram em qualquer esquina. Dizei-me, como pode uma mulher carregar sobre a cabeça um oceano de chamas tão belo?</p>
+          <p class="stanza">Pareces obra de outro mundo, uma miragem concebida pelos delírios de algum poeta; e, por vezes, questiono-me se és real ou apenas uma fantasia que minha mente insiste em cultivar.</p>
+          <p class="stanza">Já me encontro à beira da loucura por tua causa. O que mais cativa meu olhar são tuas vestes lúgubres, teus fios rubros como brasas e teu coração, aparentemente tão imaculado quanto a neve que repousa sobre terras esquecidas.</p>
+          <p>Ah, o contraste entre o sangue e a neve... há algo de sublime, quase inexplicável, nessa imagem; assim como é inexplicável o anseio que arde em meu peito, o apelo silencioso e incessante de alguém que, desesperadamente, deseja ser amado por ti.</p>
+        </div>
+        <div class="card-footer">✦ &nbsp; ✦ &nbsp; ✦</div>
+      </article>
+    </section>
+
+    <section class="closing fade" id="fim">
+      <div class="mark">❧</div>
+      <p>Algumas palavras são escritas para serem lidas.<br>Outras, simplesmente, para não permanecerem presas.</p>
+    </section>
+  </main>
+
+  <footer>Fragmentos de uma Devoção Silenciosa · Fim dos escritos</footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
